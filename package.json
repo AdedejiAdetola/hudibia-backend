@@ -1,0 +1,31 @@
+{
+  "name": "hudibia-backend",
+  "version": "1.0.0",
+  "description": "Hudibia's backend code",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdedejiAdetola/hudibia-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdedejiAdetola/hudibia-backend/issues"
+  },
+  "homepage": "https://github.com/AdedejiAdetola/hudibia-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "require": "^2.4.20"
+  }
+}
