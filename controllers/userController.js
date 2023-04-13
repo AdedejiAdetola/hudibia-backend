@@ -39,3 +39,26 @@ export const signup = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong in Sign up'})
     }
 }
+
+
+export const signin = async (req, res) => {
+    //get email and password
+    const { email, password } = req.body;
+
+    try {
+        const result = await User.findOne({ email });
+
+        if (!result) return res.status(404).json({ message: "User does not exist"});
+
+        //compare password, if true gve access
+        const isPasswordCorrect = await bcrypt.compare(password, result.password);
+
+        if (!isPasswordCorrect) return res.status(400).json({ message: 'Incorrect Password' });
+
+        const token = jwt.sign({ email: result.email, id: result._id}, 'testSecret', { expiresIn: '1h' })
+        res.status(200).json({ result, token })
+    } catch (error) {
+        res.status(500).json({ message: 'Something went wrong. Try again later'})
+    }
+    
+}
