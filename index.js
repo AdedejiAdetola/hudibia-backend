@@ -7,6 +7,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+import userRoutes from './routes/userRoute.js';
+
 const app = express();
 const PORT = process.env.PORT;
 
@@ -17,6 +19,9 @@ app.use(
         origin: [`http://localhost:${PORT}`, 'http://localhost:3000']
     })
 );
+
+
+app.use('/users', userRoutes)
 
 //CONNECT TO DATABASE
 
